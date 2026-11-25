@@ -1,0 +1,71 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+Monochrome surfaces with one electric-lime accent. Product screenshots are meant
+to be the only saturated colour on a page, so the UI itself stays quiet.
+
+Depth comes from shifting surface values, not shadows.
+
+> **Source of truth:** `src/tokens/tokens.css`. The swatches below are a copy for reading; if they ever disagree, the CSS wins.
+
+## Light theme
+
+<ColorPalette>
+  <ColorItem
+    title="Surface"
+    subtitle="--bg · --panel · --surface · --surface-2"
+    colors={{ bg: '#FBFBFA', panel: '#FFFFFF', surface: '#F6F6F4', 'surface-2': '#F1F1EE' }}
+  />
+  <ColorItem
+    title="Border"
+    subtitle="--border · --border-strong"
+    colors={{ border: '#E4E4E0', 'border-strong': '#D2D2CC' }}
+  />
+  <ColorItem
+    title="Text"
+    subtitle="--fg · --fg-muted · --fg-subtle"
+    colors={{ fg: '#131313', 'fg-muted': '#5C5C58', 'fg-subtle': '#6F6F6A' }}
+  />
+  <ColorItem
+    title="Accent"
+    subtitle="lime-700 as text, lime-300 only as a surface"
+    colors={{ accent: '#4D7C0F', 'accent-surface': '#BEF264', 'accent-on': '#131313' }}
+  />
+</ColorPalette>
+
+## Dark theme
+
+<ColorPalette>
+  <ColorItem
+    title="Surface"
+    subtitle="--bg · --panel · --surface · --surface-2"
+    colors={{ bg: '#0A0A0B', panel: '#0E0E10', surface: '#141416', 'surface-2': '#191A1C' }}
+  />
+  <ColorItem
+    title="Border"
+    subtitle="--border · --border-strong"
+    colors={{ border: '#232326', 'border-strong': '#33333A' }}
+  />
+  <ColorItem
+    title="Text"
+    subtitle="--fg · --fg-muted · --fg-subtle"
+    colors={{ fg: '#F2F2F0', 'fg-muted': '#A3A3A0', 'fg-subtle': '#868682' }}
+  />
+  <ColorItem
+    title="Accent"
+    subtitle="lime-300 works as text on dark (15.15:1)"
+    colors={{ accent: '#BEF264', 'accent-surface': '#BEF264', 'accent-on': '#131313' }}
+  />
+</ColorPalette>
+
+## Why lime changes role
+
+| Pairing | Contrast | Result |
+| --- | --- | --- |
+| lime-300 `#BEF264` text on dark `#0A0A0B` | 15.15 : 1 | AAA |
+| lime-300 `#BEF264` text on light `#FBFBFA` | 1.26 : 1 | **Fails** |
+| lime-700 `#4D7C0F` text on light | 4.82 : 1 | AA |
+| `#131313` text on lime-300 surface | 14.22 : 1 | AAA |

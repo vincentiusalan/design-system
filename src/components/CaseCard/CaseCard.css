@@ -1,0 +1,52 @@
+.au-case {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 420px;
+  padding: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  font-family: var(--font-sans);
+  transition: border-color var(--dur-fast) var(--ease-out);
+}
+.au-case:hover { border-color: var(--border-strong); }
+.au-case__meta { display: flex; flex-wrap: wrap; gap: 6px; }
+.au-case__title {
+  margin: 0;
+  font-size: var(--text-24);
+  line-height: 32px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.au-case__summary {
+  margin: 0;
+  font-size: var(--text-16);
+  line-height: 26px;
+  color: var(--fg-muted);
+}
+.au-case__metric {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.au-case__metric-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-28);
+  line-height: 36px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.au-case__metric-label { font-size: var(--text-12); color: var(--fg-muted); }
+.au-case__footer { display: flex; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

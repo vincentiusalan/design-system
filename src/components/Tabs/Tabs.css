@@ -1,0 +1,58 @@
+.au-tabs {
+  font-family: var(--font-sans);
+  color: var(--fg);
+}
+.au-tabs__list {
+  display: flex;
+  gap: var(--space-1);
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border);
+  scrollbar-width: thin;
+}
+.au-tabs__tab {
+  position: relative;
+  flex: none;
+  height: 44px;
+  padding: 0 var(--space-4);
+  border: 0;
+  background: transparent;
+  color: var(--fg-muted);
+  font: inherit;
+  font-size: var(--text-14);
+  font-weight: 500;
+  cursor: pointer;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.au-tabs__tab:hover:not(:disabled) { color: var(--fg); }
+.au-tabs__tab[aria-selected='true'] { color: var(--fg); }
+/* Indicator uses --accent: lime-700 in light mode (lime-300 is too pale there), lime-300 in dark. */
+.au-tabs__tab[aria-selected='true']::after {
+  content: '';
+  position: absolute;
+  left: var(--space-2);
+  right: var(--space-2);
+  bottom: -1px;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--accent);
+}
+.au-tabs__tab:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+  border-radius: var(--radius-sm);
+}
+.au-tabs__tab:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.au-tabs__panel {
+  padding: var(--space-5) 0;
+  font-size: var(--text-16);
+  line-height: 26px;
+  color: var(--fg-muted);
+}
+.au-tabs__panel:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}

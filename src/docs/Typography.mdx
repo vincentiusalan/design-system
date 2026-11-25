@@ -1,0 +1,43 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+**Geist** for interface and reading, **Geist Mono** for numbers, durations and code.
+
+The scale is a fixed set of pixel steps rather than `clamp()`, so Figma text styles
+and CSS never drift apart.
+
+## Geist
+
+<Typeset
+  fontFamily="Geist, sans-serif"
+  fontSizes={[12, 14, 16, 18, 24, 28, 36, 54]}
+  fontWeight={600}
+  sampleText="Small details, big impact."
+/>
+
+## Geist Mono
+
+<Typeset
+  fontFamily="'Geist Mono', monospace"
+  fontSizes={[11, 12, 14, 28]}
+  fontWeight={500}
+  sampleText="43 s → 16 min · 45% → 81%"
+/>
+
+## Scale
+
+| Token | Size | Typical use |
+| --- | --- | --- |
+| `--text-10` | 10px | Fine print |
+| `--text-11` | 11px | Mono badges |
+| `--text-12` | 12px | Labels, helper text |
+| `--text-14` | 14px | Controls, small body |
+| `--text-16` | 16px | Body, inputs (prevents iOS zoom) |
+| `--text-18` | 18px | Story paragraphs |
+| `--text-24` | 24px | Card titles |
+| `--text-28` | 28px | Section titles, metrics |
+| `--text-36` | 36px | Page titles |
+| `--text-54` | 54px | Hero |

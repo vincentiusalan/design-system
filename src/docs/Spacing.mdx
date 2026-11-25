@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Spacing & Radius" />
+
+# Spacing & radius
+
+A 4px base. Components use the named steps only, never raw pixel values.
+
+<div style={{ display: 'grid', gap: 12, margin: '24px 0' }}>
+  {[
+    ['--space-1', 4],
+    ['--space-2', 8],
+    ['--space-3', 12],
+    ['--space-4', 16],
+    ['--space-5', 20],
+    ['--space-6', 24],
+    ['--space-8', 32],
+    ['--space-10', 40],
+  ].map(([name, px]) => (
+    <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+      <code style={{ width: 96 }}>{name}</code>
+      <div style={{ width: px, height: 16, background: '#BEF264', borderRadius: 3 }} />
+      <span style={{ fontFamily: 'Geist Mono, monospace', fontSize: 12 }}>{px}px</span>
+    </div>
+  ))}
+</div>
+
+## Radius
+
+<div style={{ display: 'flex', gap: 24, flexWrap: 'wrap', margin: '24px 0' }}>
+  {[
+    ['--radius-sm', '6px'],
+    ['--radius-md', '10px'],
+    ['--radius-lg', '16px'],
+    ['--radius-full', '999px'],
+  ].map(([name, r]) => (
+    <div key={name} style={{ display: 'grid', gap: 8, justifyItems: 'center' }}>
+      <div style={{ width: 72, height: 72, border: '2px solid #4D7C0F', borderRadius: r }} />
+      <code>{name}</code>
+    </div>
+  ))}
+</div>
+
+## Motion
+
+| Token | Value | Use |
+| --- | --- | --- |
+| `--ease-out` | `cubic-bezier(.22, 1, .36, 1)` | Default easing |
+| `--dur-instant` | 120ms | Press feedback |
+| `--dur-fast` | 200ms | Hover, colour |
+| `--dur-base` | 300ms | Movement (switch thumb) |
+
+All durations become `0ms` under `prefers-reduced-motion: reduce`.

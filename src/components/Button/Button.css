@@ -1,0 +1,82 @@
+.au-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-instant) var(--ease-out);
+}
+.au-button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+.au-button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.au-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+.au-button.is-loading {
+  opacity: 1;
+  cursor: progress;
+}
+
+/* sizes */
+.au-button--sm { height: 32px; padding: 0 var(--space-3); font-size: var(--text-12); }
+.au-button--md { height: 40px; padding: 0 var(--space-5); font-size: var(--text-14); }
+.au-button--lg { height: 48px; padding: 0 var(--space-6); font-size: var(--text-16); }
+.au-button--full { width: 100%; }
+
+/* variants */
+.au-button--primary {
+  background: var(--accent-surface);
+  color: var(--accent-on);
+}
+.au-button--primary:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent-surface) 85%, var(--fg));
+}
+.au-button--secondary {
+  background: var(--panel);
+  color: var(--fg);
+  border-color: var(--border-strong);
+}
+.au-button--secondary:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+.au-button--ghost {
+  background: transparent;
+  color: var(--fg);
+}
+.au-button--ghost:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+.au-button--danger {
+  background: var(--danger-surface);
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+}
+
+.au-button__icon { display: inline-flex; }
+.au-button__icon svg { width: 1.15em; height: 1.15em; }
+
+.au-button__spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: au-spin 700ms linear infinite;
+}
+@keyframes au-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .au-button__spinner { animation-duration: 2s; }
+}

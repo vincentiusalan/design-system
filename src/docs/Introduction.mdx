@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction" />
+
+# Vincentius Alan · Design System
+
+A component library built on the design tokens of [vincentiusalan.com](https://vincentiusalan.com), made in Storybook by **Vincentius Alan**, a product designer.
+It turns the foundation of my portfolio (Figma variables → CSS tokens) into
+documented, tested React components.
+
+## Why this exists
+
+I wanted to learn how design and engineering meet in a component library:
+how a token in Figma becomes a CSS variable, how a component's states become
+**stories**, and how a design decision gets **tested** instead of assumed.
+
+## What's inside
+
+| Section | What it shows |
+| --- | --- |
+| **Foundations** | Colour, typography and spacing tokens, in light and dark |
+| **Components** | Button, Badge, TextField, Switch, Checkbox, Tabs, Dialog: every state as a story, with usage guidance (when to use, do / don't) on each Docs page |
+| **Patterns** | CaseCard, composed from Badge and Button |
+
+## Storybook features used
+
+- **Controls (args)**: change any prop live in the Controls panel.
+- **Autodocs**: every component gets a generated Docs page with a props table.
+- **Interaction tests**: stories with a `play` function click, type and assert.
+  Open the **Interactions** panel to watch them run step by step.
+- **Accessibility**: the **Accessibility** panel runs axe checks on every story.
+- **Theme toolbar**: switch Light / Dark from the toolbar; stories and these docs pages follow. Every component also has a `Dark` story, so dark contrast is tested too.
+- **Visual regression tests**: key stories are compared with saved screenshots, so an unintended visual change fails.
+- **Keyboard tests**: Tab, Enter, Space, arrow keys and Esc are tested, not just mouse clicks.
+- **Responsive check**: `CaseCard › Mobile` fails if the grid overflows a small phone.
+- **MDX docs**: these pages.
+
+## Design rules encoded here
+
+1. **Lime is rare.** One primary action per view. Lime changes role between themes:
+   in light mode lime-300 `#BEF264` fails as text (1.26:1), so it is used only as a
+   surface, and text accents use lime-700 `#4D7C0F` (4.82:1).
+2. **Numbers come with their baseline.** A metric reads `43 s → 16 min`, never a bare `+2,133%`.
+3. **Labels are not placeholders.** Every input has a visible label.
+4. **Motion respects the user.** Durations drop to zero under `prefers-reduced-motion`.

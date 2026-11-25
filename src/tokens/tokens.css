@@ -1,0 +1,116 @@
+/*
+ * Vincentius Alan · Design System — design tokens.
+ * Values mirror the portfolio (vincentiusalan.com) Figma foundation.
+ * Monochrome + electric lime. Lime changes ROLE between themes:
+ * light = lime-700 as text, lime-300 only as a surface; dark = lime-300 as text.
+ */
+
+@font-face {
+  font-family: 'Geist';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/geist-latin-wght-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Geist Mono';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/geist-mono-latin-wght-normal.woff2') format('woff2');
+}
+
+:root {
+  /* surface */
+  --bg: #fbfbfa;
+  --panel: #ffffff;
+  --surface: #f6f6f4;
+  --surface-2: #f1f1ee;
+  /* border */
+  --border: #e4e4e0;
+  --border-strong: #d2d2cc;
+  /* text */
+  --fg: #131313;
+  --fg-muted: #5c5c58;
+  --fg-subtle: #6f6f6a;
+  /* accent */
+  --accent: #4d7c0f;
+  --accent-surface: #bef264;
+  --accent-on: #131313;
+  --focus: #4d7c0f;
+  --danger: #b42318;
+  --danger-surface: #fef3f2;
+
+  /* type */
+  --font-sans: 'Geist', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, monospace;
+  --text-10: 10px;
+  --text-11: 11px;
+  --text-12: 12px;
+  --text-14: 14px;
+  --text-16: 16px;
+  --text-18: 18px;
+  --text-24: 24px;
+  --text-28: 28px;
+  --text-36: 36px;
+  --text-54: 54px;
+
+  /* spacing — 4px base */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 999px;
+
+  /* motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-instant: 120ms;
+  --dur-fast: 200ms;
+  --dur-base: 300ms;
+
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --bg: #0a0a0b;
+  --panel: #0e0e10;
+  --surface: #141416;
+  --surface-2: #191a1c;
+  --border: #232326;
+  --border-strong: #33333a;
+  --fg: #f2f2f0;
+  --fg-muted: #a3a3a0;
+  --fg-subtle: #868682;
+  --accent: #bef264;
+  --accent-surface: #bef264;
+  --accent-on: #131313;
+  --focus: #bef264;
+  --danger: #fda29b;
+  --danger-surface: #2a1513;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-instant: 0ms;
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}

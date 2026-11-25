@@ -1,0 +1,55 @@
+.au-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: var(--text-12);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+.au-badge--mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-11);
+  letter-spacing: 0.02em;
+}
+.au-badge--neutral {
+  background: var(--surface-2);
+  color: var(--fg-muted);
+  border: 1px solid var(--border);
+}
+.au-badge--accent {
+  background: var(--accent-surface);
+  color: var(--accent-on);
+}
+.au-badge--live {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--border-strong);
+}
+.au-badge__dot {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.au-badge__dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.35;
+  animation: au-pulse 2000ms var(--ease-out) infinite;
+}
+@keyframes au-pulse {
+  0% { transform: scale(0.6); opacity: 0.5; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .au-badge__dot::after { animation: none; }
+}
